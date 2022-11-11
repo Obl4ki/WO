@@ -1,5 +1,5 @@
 package pl.edu.zut.wo.wzorce.pizzeria.pizza;
 
-public class GreckaPizza extends Pizza {
+public class WłoskaOwoceMorzaPizza extends Pizza {
 
 }
