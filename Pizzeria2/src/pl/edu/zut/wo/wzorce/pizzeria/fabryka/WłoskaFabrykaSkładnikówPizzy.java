@@ -14,10 +14,10 @@ import pl.edu.zut.wo.wzorce.pizzeria.składniki.SerReggiano;
 import pl.edu.zut.wo.wzorce.pizzeria.składniki.Sos;
 import pl.edu.zut.wo.wzorce.pizzeria.składniki.SosMarinara;
 import pl.edu.zut.wo.wzorce.pizzeria.składniki.Warzywa;
-import pl.edu.zut.wo.wzorce.pizzeria.składniki.ŚwieżeMałże;
+import pl.edu.zut.wo.wzorce.pizzeria.składniki.SwiezeMalze;
 
 public class WłoskaFabrykaSkładnikówPizzy implements FabrykaSkładnikówPizzy {
-	public Ciasto utwórzCiasto() {
+	public Ciasto utworzCiasto() {
 		return new CienkieChrupkieCiasto();
 	}
 
@@ -25,20 +25,21 @@ public class WłoskaFabrykaSkładnikówPizzy implements FabrykaSkładnikówPizzy
 		return new SosMarinara();
 	}
 
-	public Ser utwórzSer() {
-		return new SerReggiano();
+	public Ser[] utwórzSer() {
+		Ser[] ser = {new SerReggiano()};
+		return ser;
 	}
 
-	public Warzywa[] utwórzWarzywa() {
+	public Warzywa[] utworzWarzywa() {
 		Warzywa warzywa[] = { new Czosnek(), new Cebula(), new Pieczarki(), new CzerwonaPapryka() };
 		return warzywa;
 	}
 
-	public Pepperoni utwórzPepperoni() {
+	public Pepperoni utworzPepperoni() {
 		return new PlastryPepperoni();
 	}
 
 	public Małże utwórzMałże() {
-		return new ŚwieżeMałże();
+		return new SwiezeMalze();
 	}
 }

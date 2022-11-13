@@ -8,15 +8,15 @@ import pl.edu.zut.wo.wzorce.pizzeria.składniki.Sos;
 import pl.edu.zut.wo.wzorce.pizzeria.składniki.Warzywa;
 
 public interface FabrykaSkładnikówPizzy {
-	public Ciasto utwórzCiasto();
+	public Ciasto utworzCiasto();
 
 	public Sos utwórzSos();
 
-	public Ser utwórzSer();
+	public Ser[] utwórzSer();
 
-	public Warzywa[] utwórzWarzywa();
+	public Warzywa[] utworzWarzywa();
 
-	public Pepperoni utwórzPepperoni();
+	public Pepperoni utworzPepperoni();
 
 	public Małże utwórzMałże();
 }

@@ -10,10 +10,11 @@ public class OwoceMorzaPizza extends Pizza {
 	}
 
 	public void przygotowanie() {
+		this.nazwa = "Pizza owoce morza";
 		System.out.println("Przygotowywanie: " + nazwa);
-		ciasto = fabrykaSkładników.utwórzCiasto();
-		sos = fabrykaSkładników.utwórzSos();
-		ser = fabrykaSkładników.utwórzSer();
-		małże = fabrykaSkładników.utwórzMałże();
+		this.ciasto = fabrykaSkładników.utworzCiasto();
+		this.sos = fabrykaSkładników.utwórzSos();
+		this.ser = fabrykaSkładników.utwórzSer();
+		this.małze = fabrykaSkładników.utwórzMałże();
 	}
 }

@@ -11,8 +11,10 @@ public class SerowaPizza extends Pizza {
 
 	@Override
 	public void przygotowanie() {
-		// TODO Auto-generated method stub
-
+		this.nazwa = "Serowa pizza";
+		System.out.println("Przygotowywanie: " + nazwa);
+		this.sos = fabrykaSkładników.utwórzSos();
+		this.ser = fabrykaSkładników.utwórzSer();
 	}
 
 }

@@ -12,9 +12,9 @@ public abstract class Pizza {
 	Ciasto ciasto;
 	Sos sos;
 	Warzywa warzywa[];
-	Ser ser;
+	Ser[] ser;
 	Pepperoni pepperoni;
-	Małże małże;
+	Małże małze;
 
 	public abstract void przygotowanie();
 
@@ -41,9 +41,14 @@ public abstract class Pizza {
 	public String toString() {
 		// kod wyświetlający informacje o pizzy
 		String warz = null;
-		if (warzywa != null) 
+		if (warzywa != null)
 			for (Warzywa w : warzywa) {
 				warz += (warz == null ? "" : ",") + w.getClass().getSimpleName();
+			}
+		String ser = null;
+		if (this.ser != null)
+			for (Ser s : this.ser) {
+				ser += (this.ser == null ? "" : ",") + s.getClass().getSimpleName();
 			}
 		String info = String.format("%s\n"
 				+ "ciasto: %s\n"
@@ -51,14 +56,14 @@ public abstract class Pizza {
 				+ "warzywa: %s\n"
 				+ "ser: %s\n"
 				+ "pepperoni: %s\n"
-				+ "małże: %s", 
-				nazwa, 
+				+ "małże: %s",
+				nazwa,
 				ciasto == null ? "brak" : ciasto.getClass().getSimpleName(),
 				sos == null ? "brak" : sos.getClass().getSimpleName(),
-				warz == null ? "brak" : warz, 
-				ser == null ? "brak" : ser.getClass().getSimpleName(),
+				warz == null ? "brak" : warz,
+				ser == null ? "brak" : ser,
 				pepperoni == null ? "brak" : pepperoni.getClass().getSimpleName(),
-				małże == null ? "brak" : małże.getClass().getSimpleName()); 
+				małze == null ? "brak" : małze.getClass().getSimpleName());
 		return info;
 	}
 }
