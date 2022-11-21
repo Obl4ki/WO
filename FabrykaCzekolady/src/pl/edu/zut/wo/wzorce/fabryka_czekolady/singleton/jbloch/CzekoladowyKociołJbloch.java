@@ -1,15 +1,12 @@
-package pl.edu.zut.wo.wzorce.fabryka_czekolady;
+package pl.edu.zut.wo.wzorce.fabryka_czekolady.singleton.jbloch;
 
-public class CzekoladowyKocioł {
-	private boolean pusty;
-	private boolean ugotowany;
+public enum CzekoladowyKociołJbloch {
+	INSTANCE;
+	// tutaj umieść inne użyteczne zmienne obiektowe
+	private boolean pusty=true;
+	private boolean ugotowany=false;
 
-	public CzekoladowyKocioł() {
-		pusty = true;
-		ugotowany = false;
-		System.out.println("Utworzenie instancji Czekoladowego Kotła: " + this);
-	}
-
+	// tutaj umieść inne użyteczne metody
 	public void napełniaj() {
 		if (jestPusty()) {
 			pusty = false;

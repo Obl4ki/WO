@@ -1,15 +1,28 @@
-package pl.edu.zut.wo.wzorce.fabryka_czekolady;
+package pl.edu.zut.wo.wzorce.fabryka_czekolady.singleton.double_lock;
 
-public class CzekoladowyKocioł {
+public class CzekoladowyKociołDoubleLock {
+	private volatile static CzekoladowyKociołDoubleLock unikalnaInstancja;
+
 	private boolean pusty;
 	private boolean ugotowany;
-
-	public CzekoladowyKocioł() {
+	
+	private CzekoladowyKociołDoubleLock() {
 		pusty = true;
 		ugotowany = false;
 		System.out.println("Utworzenie instancji Czekoladowego Kotła: " + this);
 	}
 
+	public static CzekoladowyKociołDoubleLock pobierzInstancję() {
+		if (unikalnaInstancja == null) {
+			synchronized (CzekoladowyKociołDoubleLock.class) {
+				if (unikalnaInstancja == null) {
+					unikalnaInstancja = new CzekoladowyKociołDoubleLock();
+				}
+			}
+		}
+		return unikalnaInstancja;
+	}
+	
 	public void napełniaj() {
 		if (jestPusty()) {
 			pusty = false;

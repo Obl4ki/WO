@@ -1,15 +1,21 @@
-package pl.edu.zut.wo.wzorce.fabryka_czekolady;
+package pl.edu.zut.wo.wzorce.fabryka_czekolady.singleton.eager;
 
-public class CzekoladowyKocioł {
+public class CzekoladowyKociołEager {
+	private static CzekoladowyKociołEager unikalnaInstancja = new CzekoladowyKociołEager();
+
+	// tutaj umieść inne użyteczne zmienne obiektowe
 	private boolean pusty;
 	private boolean ugotowany;
-
-	public CzekoladowyKocioł() {
+	private CzekoladowyKociołEager() {
 		pusty = true;
 		ugotowany = false;
 		System.out.println("Utworzenie instancji Czekoladowego Kotła: " + this);
 	}
 
+	public static synchronized CzekoladowyKociołEager pobierzInstancję() {
+		return unikalnaInstancja;
+	}
+	// tutaj umieść inne użyteczne metody
 	public void napełniaj() {
 		if (jestPusty()) {
 			pusty = false;
