@@ -1,10 +1,10 @@
-package pl.edu.zut.wi.wo.tea.tests;
+package pl.edu.zut.wi.wo.tea1.tests;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import pl.edu.zut.wi.wo.tea.TeaApplication;
+import pl.edu.zut.wi.wo.tea1.TeaApplication;
 
 
 public class TeaApplicationTests {

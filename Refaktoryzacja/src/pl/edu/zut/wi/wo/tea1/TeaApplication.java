@@ -1,4 +1,4 @@
-package pl.edu.zut.wi.wo.tea;
+package pl.edu.zut.wi.wo.tea1;
 
 public class TeaApplication {
 
@@ -10,33 +10,21 @@ public class TeaApplication {
 
 	public static double firstMethod() {
 		ReadingRecord aReading = acquireReading();
-		double baseCharge = baseRate(aReading.month, aReading.year) * aReading.quantity;
+		double baseCharge = TeaPricing.baseRate() * aReading.quantity;
 		return baseCharge;
 	}
 
 	public static double secondMethod() {
 		ReadingRecord aReading = acquireReading();
-		double base = (baseRate(aReading.month, aReading.year) * aReading.quantity);
-		double taxableCharge = Math.max(0, base - taxThreshold(aReading.year));
+		double base = (TeaPricing.baseRate() * aReading.quantity);
+		double taxableCharge = Math.max(0, base - TeaPricing.taxThreshold());
 		return taxableCharge;
 	}
-	
+
 	public static double thirdMethod() {
 		ReadingRecord aReading = acquireReading();
-		double basicChargeAmount = calculateBaseCharge(aReading);
+		double basicChargeAmount = TeaPricing.calculateBaseCharge(aReading.quantity);
 		return basicChargeAmount;
-	}
-
-	private static double calculateBaseCharge(ReadingRecord aReading) {
-		return baseRate(aReading.month, aReading.year) * aReading.quantity;
-	}
-
-	private static double taxThreshold(int year) {
-		return 100;
-	}
-
-	private static double baseRate(int month, int year) {
-		return 12.5;
 	}
 
 	private static ReadingRecord acquireReading() {

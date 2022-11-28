@@ -11,7 +11,7 @@ public class CircleTests {
 
 	@Test
 	public void testCircum() {
-		assertEquals(12.56, Circle.circum(2), 0.01);
+		assertEquals(12.56, Circle.circumference(2), 0.01);
 	}
 
 }

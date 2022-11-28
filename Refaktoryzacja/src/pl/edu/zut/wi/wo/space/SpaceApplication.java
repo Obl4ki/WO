@@ -4,9 +4,10 @@ public class SpaceApplication {
 
 	public static void main(String[] args) {
 		Space space = new Space();
-		space.defaultOwner = new Person("Martin", "Fowler");
-		Ship spaceShip = new Ship(space.defaultOwner);
-		space.defaultOwner = new Person("Rebecca", "Parsons");
+		space.setDefaultOwner(new Person("Martin", "Fowler"));
+		Ship spaceShip = new Ship(space.getDefaultOwner());
+		space.setDefaultOwner(new Person("Rebecca", "Parsons"));
+		System.out.println(spaceShip.owner.firstName);
 	}
 
 }

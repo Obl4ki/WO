@@ -1,4 +1,4 @@
-package pl.edu.zut.wi.wo.tea;
+package pl.edu.zut.wi.wo.tea1;
 
 public class ReadingRecord {
 	String customer;

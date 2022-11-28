@@ -13,12 +13,8 @@ public class DriverMain {
 	}
 
 	private int rating(Driver driver) {
-		return moreThanFiveDeliveries(driver) ? 2 : 1;
+		return driver.getLateDeliveries() > 5 ? 2 : 1;
 		
-	}
-
-	private boolean moreThanFiveDeliveries(Driver driver) {
-		return driver.getLateDeliveries() > 5;
 	}
 
 }

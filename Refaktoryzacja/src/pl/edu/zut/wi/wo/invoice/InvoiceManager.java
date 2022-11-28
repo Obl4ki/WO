@@ -5,21 +5,37 @@ import java.time.LocalDate;
 public class InvoiceManager {
 
 	public static void printOwing(Invoice invoice) {
-		double outstanding = 0;
-		System.out.println("************************");
-		System.out.println("* Rachunek dla klienta *");
-		System.out.println("************************");
-		// Wyliczenie nale¿noœci.
+		printOnStart();
+		// Wyliczenie naleï¿½noï¿½ci.
+		double outstanding = countInvoice(invoice);
+		// Zapisanie daty pï¿½atnoï¿½ci.
+		saveDate(invoice);
+		// Wyï¿½wietlenie szczegï¿½ï¿½w.
+		printDetails(invoice, outstanding);
+	}
+
+	private static void printDetails(Invoice invoice, double outstanding) {
+		System.out.println(String.format("nazwa: %s", invoice.getCustomer()));
+		System.out.println(String.format("kwota: %.2f", outstanding));
+		System.out.println(String.format("pï¿½atnoï¿½ï¿½ do: %s", invoice.getDueDate()));
+	}
+
+	private static void saveDate(Invoice invoice) {
+		LocalDate today = LocalDate.now();
+		invoice.setDueDate(today.plusDays(30));
+	}
+
+	private static double countInvoice(Invoice invoice) {
+		double outstanding = 0.;
 		for (Order o : invoice.getOrders()) {
 			outstanding += o.getAmount();
 		}
-		// Zapisanie daty p³atnoœci.
-		LocalDate today = LocalDate.now();  
-		invoice.setDueDate(today.plusDays(30));
-		// Wyœwietlenie szczegó³ów.
-		System.out.println(String.format("nazwa: %s", invoice.getCustomer()));
-		System.out.println(String.format("kwota: %.2f", outstanding));
-		System.out.println(String.format("p³atnoœæ do: %s", invoice.getDueDate()));		
+		return outstanding;
 	}
 
+	private static void printOnStart() {
+		System.out.println("************************");
+		System.out.println("* Rachunek dla klienta *");
+		System.out.println("************************");
+	}
 }
